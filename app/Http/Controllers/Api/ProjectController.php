@@ -11,8 +11,10 @@ class ProjectController extends Controller
     public function index()
     {
 
-        // $projects = Project::all();
-        //$projects = Project::with('type', 'technology')->paginate(10);
+        request()->validate([
+            'key' => ['nullable', 'string', 'min:3']
+        ]);
+
         $projects = Project::paginate(9);
 
         return response()->json([
