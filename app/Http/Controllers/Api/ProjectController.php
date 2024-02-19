@@ -17,6 +17,12 @@ class ProjectController extends Controller
 
         $projects = Project::paginate(9);
 
+        if (request()->key) {
+            $projects = Project::where('title', 'LIKE', '%' . request()->key . '%')->orWhere('content', 'LIKE', '%' . request()->key . '%')->paginate(9);
+        } else {
+            $projects = Project::paginate(9);
+        }
+
         return response()->json([
 
             'status' => true,
