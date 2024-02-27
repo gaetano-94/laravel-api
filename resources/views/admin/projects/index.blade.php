@@ -37,10 +37,11 @@
                     <td>{{ $project->slug }}</td>
                     <td>
                         <a href="{{ route('admin.projects.show', $project) }}" role="button"
-                            class="btn btn-warning btn-sm">Dettagli</a>
+                            class="btn btn-warning btn-sm">Dettagli <i class="fa-regular fa-eye"
+                                style="color: #ffffff;"></i></i></a>
 
                         <a href="{{ route('admin.projects.edit', $project->slug) }}" role="button"
-                            class="btn btn-primary btn-sm">Modifica</a>
+                            class="btn btn-primary btn-sm">Modifica <i class="fa-solid fa-pen-to-square"></i></a>
 
                         <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST"
                             class="d-inline">
@@ -48,7 +49,9 @@
 
                             @method('DELETE')
 
-                            <input type="submit" value="Elimina" class="btn btn-danger btn-sm">
+                            {{-- <input type="submit" value="Elimina"class="btn btn-danger btn-sm"> --}}
+                            <button type="submit" value="Delete" class="btn btn-danger btn-sm">Elimina <i
+                                    class="fa-solid fa-trash"></i> </button>
 
                         </form>
                     </td>
